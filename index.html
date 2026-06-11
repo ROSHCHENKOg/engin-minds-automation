@@ -846,22 +846,12 @@
 <section class="video-section" id="video">
   <div class="section-label" data-i18n="video_label">In Action</div>
   <div class="section-title" data-i18n="video_title">See it work</div>
-  <div class="video-thumb-wrap" onclick="openVideo()">
-    <video id="video-preview" muted playsinline preload="metadata" style="display:none">
-      <source src="Video Project 5.mp4" type="video/mp4" />
-    </video>
-    <canvas id="video-canvas"></canvas>
+  <div class="video-thumb-wrap" onclick="window.open('https://youtube.com/shorts/M1lBHr-6ONM','_blank')">
+    <img src="https://img.youtube.com/vi/M1lBHr-6ONM/maxresdefault.jpg" alt="Video preview" style="width:100%;display:block;border-radius:16px;" />
     <div class="video-play-btn">▶</div>
   </div>
 </section>
 
-<!-- VIDEO LIGHTBOX -->
-<div class="video-lightbox" id="video-lightbox" onclick="closeVideoOnBg(event)">
-  <button class="lightbox-close" onclick="closeVideo()">✕</button>
-  <video id="video-player" controls playsinline>
-    <source src="Video Project 5.mp4" type="video/mp4" />
-  </video>
-</div>
 
 <!-- SPECS -->
 <section class="specs" id="specs">
@@ -1102,36 +1092,6 @@ function setLang(lang) {
   document.documentElement.lang = lang;
 }
 
-// Video preview — capture first frame
-const previewVid = document.getElementById('video-preview');
-const canvas = document.getElementById('video-canvas');
-previewVid.addEventListener('loadeddata', () => {
-  previewVid.currentTime = 0.5;
-});
-previewVid.addEventListener('seeked', () => {
-  canvas.width = previewVid.videoWidth;
-  canvas.height = previewVid.videoHeight;
-  canvas.getContext('2d').drawImage(previewVid, 0, 0);
-});
-previewVid.load();
-
-function openVideo() {
-  document.getElementById('video-lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  document.getElementById('video-player').play();
-}
-function closeVideo() {
-  document.getElementById('video-lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-  const p = document.getElementById('video-player');
-  p.pause(); p.currentTime = 0;
-}
-function closeVideoOnBg(e) {
-  if (e.target === document.getElementById('video-lightbox')) closeVideo();
-}
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && document.getElementById('video-lightbox').classList.contains('open')) closeVideo();
-});
 
 const galleryImages = [
   'img/g_1.png','img/g_2.png','img/g_3.png','img/g_4.png',
