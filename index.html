@@ -20,72 +20,90 @@ input,textarea,button{font-family:inherit;}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 @keyframes glowpulse{0%,100%{opacity:.45}50%{opacity:.85}}
 
+@media(min-width:769px){
+  /* Уменьшенные верхние отступы между секциями */
+  #problem{padding-top:70px!important;}
+  #how{padding-top:70px!important;}
+  #product{padding-top:70px!important;}
+  #gallery{padding-top:70px!important;}
+  #video{padding-top:70px!important;}
+  #contact{padding-top:70px!important;}
+}
+
 @media(max-width:768px){
-  /* NAV — скрыть ссылки, уменьшить паддинг */
-  [style*="position:fixed;top:0;left:0;right:0;z-index:100"]{padding:10px 16px!important;}
-  [style*="position:fixed;top:0;left:0;right:0;z-index:100"] > div:nth-child(2){display:none!important;}
+  /* OVERFLOW */
+  body{overflow-x:hidden!important;}
+  *{box-sizing:border-box!important;}
 
-  /* HERO — паддинг и убрать плавающие чипы */
-  [style*="padding:148px 30px 92px"]{padding:90px 20px 52px!important;}
-  [style*="animation:floaty"]{display:none!important;}
+  /* NAV — убрать ссылки и CTA, оставить лого + язык */
+  [style*="position: fixed"]{padding:10px 16px!important;}
+  [style*="position: fixed"] > div:nth-child(2){display:none!important;}
+  [style*="position: fixed"] > div:nth-child(3) > a[href="#contact"]{display:none!important;}
 
-  /* SECTION паддинги */
-  [style*="padding:118px 30px"]{padding:60px 20px!important;}
+  /* STRIP «Создано для» — скрыть */
+  [style*="border-top: 1px solid rgb(240, 238, 245); border-bottom"]{display:none!important;}
 
-  /* LOGO STRIP */
-  [style*="border-top:1px solid #F0EEF5;border-bottom:1px solid #F0EEF5"] > div{
-    flex-direction:column!important;gap:10px!important;align-items:flex-start!important;
+  /* FLOATING CHIPS — скрыть */
+  [style*="animation: floaty"]{display:none!important;}
+
+  /* HERO */
+  #top{padding:88px 16px 48px!important;}
+  [style*="width: 960px"]{display:none!important;}
+
+  /* ВСЕ СЕКЦИИ */
+  [style*="padding: 118px 30px"]{padding:52px 16px!important;}
+
+  /* PROBLEM — 3 cols → 1 col */
+  #problem [style*="grid-template-columns: repeat(3, 1fr)"]{
+    grid-template-columns:1fr!important;gap:12px!important;
   }
+  #problem [style*="padding: 40px 44px"]{padding:24px 20px!important;overflow:hidden!important;max-width:100%!important;}
 
-  /* ГРИДЫ — в одну колонку */
-  [style*="grid-template-columns:repeat(3,1fr)"],
-  [style*="grid-template-columns:repeat(5,1fr)"],
-  [style*="grid-template-columns:1fr 1fr"],
-  [style*="grid-template-columns:1.05fr 0.95fr"],
-  [style*="grid-template-columns:1.1fr 0.9fr"],
-  [style*="grid-template-columns:1fr 0.95fr"]{
+  /* HOW IT WORKS — 5 cols → 1 col, убрать border-right */
+  #how [style*="grid-template-columns: repeat(5, 1fr)"]{
     grid-template-columns:1fr!important;
-    gap:12px!important;
+  }
+  #how [style*="grid-template-columns: repeat(5, 1fr)"] > div{
+    padding:20px 16px!important;
+  }
+  #how [style*="border-right: 1px solid rgb(236"]{
+    border-right:none!important;border-bottom:1px solid #ECEAF2!important;
+  }
+  #how [style*="grid-template-columns: repeat(5, 1fr)"] > div:last-child{
+    border-bottom:none!important;
   }
 
-  /* ГАЛЕРЕЯ — 2 колонки */
-  [style*="grid-template-columns:repeat(4,1fr)"]{
-    grid-template-columns:repeat(2,1fr)!important;
-    gap:10px!important;
+  /* PRODUCT — 2 cols → 1 col, картинка снизу */
+  #product [style*="grid-template-columns: 1fr 1fr"]{
+    display:flex!important;flex-direction:column!important;gap:24px!important;
   }
 
-  /* HOW IT WORKS — убрать border-right у ячеек, добавить border-bottom */
-  [style*="border-right:1px solid #ECEAF2"]{
-    border-right:none!important;
-    border-bottom:1px solid #ECEAF2!important;
+  /* GALLERY — 4 col → 2 col, крупнее превью */
+  #gallery [style*="grid-template-columns: repeat(4, 1fr)"]{
+    grid-template-columns:repeat(2,1fr)!important;gap:10px!important;
   }
+  #gallery [style*="padding: 18px"]{padding:8px!important;}
 
-  /* HERO C stats — убрать border-right */
-  [style*="border-top:1px solid #ECEAF2"] > div[style*="border-right"]{
-    border-right:none!important;
+  /* SPECS — 3 cols → 2 cols равные */
+  #specs [style*="grid-template-columns: repeat(3, 1fr)"]{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;
   }
-
-  /* PRODUCT — скрыть картинку на мобиле (не ломает контент) */
-  [style*="grid-template-columns:1fr 1fr;gap:70px"] > div:last-child{
-    display:none!important;
+  #specs [style*="grid-template-columns: repeat(3, 1fr)"] > div{
+    min-width:0;padding:16px!important;
   }
+  #specs [style*="font-size: 42px"]{font-size:32px!important;}
 
-  /* ВИДЕО — уменьшить отступ */
-  [style*="max-width:760px;margin:46px auto"]{margin:28px auto 0!important;}
-
-  /* ФОРМА — уменьшить паддинг карточки */
-  [style*="border-radius:20px;padding:34px"]{padding:20px!important;}
+  /* CONTACT — форма сначала, на всю ширину */
+  #contact [style*="grid-template-columns: 1fr 1fr"]{
+    display:flex!important;flex-direction:column!important;gap:20px!important;align-items:stretch!important;
+  }
+  #contact [style*="grid-template-columns: 1fr 1fr"] > div:first-child{order:1!important;width:100%!important;}
+  #contact [style*="grid-template-columns: 1fr 1fr"] > div:nth-child(2){order:2!important;width:100%!important;}
+  #contact [style*="border-radius: 20px"][style*="padding: 34px"]{padding:20px!important;}
 
   /* ФУТЕР */
-  [style*="display:flex;justify-content:space-between;align-items:center;gap:18px"]{
-    flex-direction:column!important;
-    gap:10px!important;
-    text-align:center!important;
-  }
-
-  /* КОНТАКТЫ — убрать PDF карточку справа (видна в форме) */
-  [style*="grid-template-columns:1fr 1fr;gap:64px"] > div:first-child > a[style*="border-radius:14px"]{
-    max-width:100%!important;
+  footer [style*="justify-content: space-between"]{
+    flex-direction:column!important;gap:10px!important;text-align:center!important;
   }
 }
 </style>
@@ -94,7 +112,7 @@ input,textarea,button{font-family:inherit;}
 <!-- NAV -->
 <div style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:13px 30px;background:rgba(255,255,255,0.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #EFEDF4;">
   <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
-    <div style="width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#5B2DBD,#9061F0);box-shadow:0 4px 12px rgba(109,59,209,0.3);"></div>
+    <div style="width:46px;height:46px;overflow:hidden;flex-shrink:0;border-radius:6px;"><img src="Micro logo 2.png" style="width:100%;height:100%;object-fit:cover;transform:scale(1.5);display:block;"/></div>
     <span style="font-weight:600;font-size:15px;letter-spacing:-0.01em;color:#14101F;">ENGIN MINDS <span style="color:#A49DB4;font-weight:500;">Automation</span></span>
   </a>
   <div style="display:flex;align-items:center;gap:32px;">
@@ -246,7 +264,7 @@ input,textarea,button{font-family:inherit;}
       <h2 style="font-size:clamp(30px,3.6vw,48px);font-weight:800;line-height:1.08;letter-spacing:-0.03em;margin:14px 0 0;"><span>{{ t.prob_title }}</span><br><span style="background:linear-gradient(112deg,#6D3BD1,#A06BF0);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">{{ t.prob_title_accent }}</span></h2>
       <p style="margin-top:18px;font-size:18px;color:#6E6880;line-height:1.55;">{{ t.prob_desc }}</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:54px;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px;">
       <div data-reveal style="background:#FBFAFD;border:1px solid #ECEAF2;border-radius:18px;padding:30px;transition:transform .3s,border-color .3s,box-shadow .3s;" style-hover="transform:translateY(-4px);border-color:#DCD4EC;box-shadow:0 18px 40px -18px rgba(61,31,122,0.22);">
         <div style="font-family:'Geist Mono',monospace;font-size:28px;font-weight:600;color:#9061F0;">01</div>
         <h3 style="font-size:18px;font-weight:600;margin-top:18px;letter-spacing:-0.01em;">{{ t.prob1_t }}</h3>
@@ -281,7 +299,7 @@ input,textarea,button{font-family:inherit;}
       <h2 style="font-size:clamp(30px,3.6vw,48px);font-weight:800;line-height:1.08;letter-spacing:-0.03em;margin:14px 0 0;">{{ t.how_title }}</h2>
       <p style="margin-top:18px;font-size:18px;color:#6E6880;line-height:1.55;">{{ t.how_desc }}</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:54px;border:1px solid #ECEAF2;border-radius:18px;overflow:hidden;background:#fff;">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:32px;border:1px solid #ECEAF2;border-radius:18px;overflow:hidden;background:#fff;">
       <div data-reveal style="padding:32px 26px;border-right:1px solid #ECEAF2;">
         <div style="font-size:38px;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,#6D3BD1,#B58CF2);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;line-height:1;">01</div>
         <h3 style="font-size:16px;font-weight:600;margin-top:22px;letter-spacing:-0.01em;">{{ t.step1_t }}</h3>
@@ -427,12 +445,13 @@ input,textarea,button{font-family:inherit;}
 
 <!-- CONTACT -->
 <section id="contact" style="padding:118px 30px;background:#ffffff;">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
     <div data-reveal>
       <div style="font-family:'Geist Mono',monospace;font-size:15px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#6D3BD1;">{{ t.contact_label }}</div>
       <h2 style="font-size:clamp(30px,3.6vw,48px);font-weight:800;line-height:1.08;letter-spacing:-0.03em;margin:14px 0 0;">{{ t.contact_title }}</h2>
       <p style="margin-top:16px;font-size:17px;color:#6E6880;line-height:1.55;max-width:420px;">{{ t.contact_desc }}</p>
-      <div style="margin-top:36px;display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;flex-direction:column;gap:14px;margin-top:36px;">
         <a href="mailto:iingforall@gmail.com" style="display:flex;align-items:center;gap:13px;color:#14101F;text-decoration:none;font-size:15px;transition:color .2s;" style-hover="color:#6D3BD1;">
           <span style="width:38px;height:38px;border-radius:10px;background:#FBFAFD;border:1px solid #ECEAF2;display:flex;align-items:center;justify-content:center;font-family:'Geist Mono',monospace;font-size:13px;color:#6D3BD1;">@</span>
           iingforall@gmail.com
@@ -446,8 +465,8 @@ input,textarea,button{font-family:inherit;}
           @EnginMinds_CEO
         </a>
       </div>
-      <a href="#" style="display:flex;gap:15px;align-items:center;text-decoration:none;margin-top:24px;background:#FBFAFD;border:1px solid #ECEAF2;border-radius:14px;padding:18px 20px;max-width:420px;transition:border-color .2s,transform .2s;" style-hover="border-color:#DCD4EC;transform:translateY(-2px);">
-        <div style="width:42px;height:42px;border-radius:10px;background:#14101F;display:flex;align-items:center;justify-content:center;font-family:'Geist Mono',monospace;font-size:12px;color:#A06BF0;">PDF</div>
+      <a href="Engin_Minds_Automation.pdf" download style="display:flex;gap:10px;align-items:center;text-decoration:none;margin-top:24px;background:#FBFAFD;border:1px solid #ECEAF2;border-radius:14px;padding:14px 16px;max-width:420px;transition:border-color .2s,transform .2s;" style-hover="border-color:#DCD4EC;transform:translateY(-2px);">
+        <div style="width:42px;height:42px;min-width:42px;border-radius:10px;background:#14101F;display:flex;align-items:center;justify-content:center;font-family:'Geist Mono',monospace;font-size:12px;color:#A06BF0;flex-shrink:0;">PDF</div>
         <div><div style="font-size:15px;font-weight:600;color:#14101F;">{{ t.pdf_title }}</div><div style="font-size:13px;color:#6E6880;margin-top:1px;">{{ t.pdf_desc }}</div></div>
       </a>
     </div>
@@ -473,6 +492,7 @@ input,textarea,button{font-family:inherit;}
         <div id="form-status" style="display:none;padding:12px 15px;border-radius:10px;font-size:14px;"></div>
       </form>
     </div>
+    </div>
   </div>
 </section>
 
@@ -480,7 +500,7 @@ input,textarea,button{font-family:inherit;}
 <footer style="background:#FBFAFD;border-top:1px solid #EFEDF4;padding:40px 30px;">
   <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;">
     <div style="display:flex;align-items:center;gap:11px;">
-      <div style="width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,#5B2DBD,#9061F0);"></div>
+      <div style="width:38px;height:38px;overflow:hidden;flex-shrink:0;border-radius:5px;"><img src="Micro logo 2.png" style="width:100%;height:100%;object-fit:cover;transform:scale(1.5);display:block;"/></div>
       <span style="font-weight:600;font-size:14px;">ENGIN MINDS <span style="color:#A49DB4;font-weight:500;">Automation</span></span>
     </div>
     <p style="color:#A49DB4;font-size:13.5px;font-family:'Geist Mono',monospace;">{{ t.footer_copy }}</p>
@@ -551,7 +571,7 @@ class Component extends DCLogic {
     },
     ru: {
       nav_how:'Как работает', nav_product:'Продукт', nav_gallery:'Галерея', nav_video:'Демо', nav_cta:'Связаться',
-      hero_badge:'Автоматизация 3D-печати', hero_sub:'EMA — программно-аппаратный комплекс, который убирает оператора из процесса: принтеры охлаждают, сбрасывают деталь и перезапускаются сами, 24/7.',
+      hero_badge:'Автоматизация 3D-печати', hero_sub:'EMA — программно-аппаратный комплекс, который убирает оператора из процесса: принтеры сбрасывают деталь и перезапускаются сами, 24/7.',
       hero_cta1:'Связаться', hero_cta2:'Смотреть в работе', hero_trust:'Работа 24/7 · Без оператора · Бесконечные циклы',
       heroA_lead:'3D-печать,', heroA_accent:'которая работает сама.',
       heroB_lead:'Ваша ферма принтеров —', heroB_accent:'без операторов.',
@@ -562,25 +582,25 @@ class Component extends DCLogic {
       prob_label:'Проблема', prob_title:'Ферма принтеров — значит персонал.', prob_title_accent:'Всегда.',
       prob_desc:'Каждая готовая деталь лежит на столе, пока её кто-то не снимет. Этот кто-то работает посменно, круглосуточно.',
       prob1_t:'Персонал в 2–3 смены', prob1_d:'Кто-то должен постоянно работать — снимать детали и перезапускать печать, днём и ночью.',
-      prob2_t:'До 30% простоев', prob2_d:'Принтер простаивает между концом печати и приходом оператора. Потерянная эффективность.',
+      prob2_t:'До 30% простоев', prob2_d:'Принтер простаивает между концом печати и приходом оператора. Эффективность фермы падает.',
       prob3_t:'Масштаб = рост штата', prob3_d:'Больше принтеров — значит больше людей. Увеличивать ферму без роста ФОТ невозможно.',
       prob_sol_label:'Решение',
       prob_solution:'EMA полностью убирает оператора из процесса. Принтеры работают в автоматическом режиме 24/7 — охлаждаются, сбрасывают детали и перезапускаются сами, без единого человека в зале.',
       how_label:'Как это работает', how_title:'Пять шагов. Полностью автономно.',
-      how_desc:'Каждый цикл проходит сам — от охлаждения до сброса детали и старта следующей печати.',
+      how_desc:'Каждый цикл происходит самостоятельно — от охлаждения до сброса детали и старта следующей печати.',
       step1_t:'Печать завершена', step1_d:'Принтер заканчивает задание и сигнализирует системе.',
       step2_t:'Быстрое охлаждение', step2_d:'Четыре воздуходувки охлаждают деталь и стол одновременно.',
       step3_t:'Изгиб стола', step3_d:'Толкающий механизм изгибает стол — деталь отделяется.',
       step4_t:'Сброс детали', step4_d:'Насадка на печатной головке снимает деталь со стола.',
       step5_t:'Следующий цикл', step5_d:'Принтер начинает следующую печать. Повторяется бесконечно.',
       product_label:'Продукт', product_title:'Железо + софт.', product_title2:'Готово к работе.',
-      product_desc:'EMA устанавливается на ваш принтер без модификаций. Веб-сервис готовит файлы к автоматизации — знать G-код не нужно.',
+      product_desc:'EMA устанавливается на ваш принтер без необходимости дополнительных модификаций. Веб-сервис готовит файлы к автоматизации — знать G-код не нужно.',
       feat1_t:'Компактность', feat1_d:'Прибавляет только ~15 см по высоте. Ширина и глубина не меняются — идеально для крупных ферм.',
       feat2_t:'Бесконечные циклы', feat2_d:'Работает с одним столом — без дополнительных расходников и замен стола.',
       feat3_t:'Быстрое охлаждение', feat3_d:'4 воздуходувки с оптимизированными соплами сокращают паузы между циклами.',
       feat4_t:'Гибкая настройка', feat4_d:'Настраивается каждый этап: температура, тайминги, высота сброса, режим очистки.',
       feat5_t:'Питание от принтера', feat5_d:'Никаких лишних розеток — EMA питается напрямую от принтера.',
-      gallery_label:'Галерея', gallery_title:'Устройство вблизи', gallery_desc:'Устройство в реальных установках.', gallery_btn:'Все фото',
+      gallery_label:'Галерея', gallery_title:'Устройство вблизи', gallery_desc:'Реальные фотографии установки', gallery_btn:'Все фото',
       video_label:'В действии', video_title:'Как это работает', video_desc:'Полный цикл автоматизации — охлаждение, отделение, сброс, рестарт.',
       specs_label:'Ключевые цифры', specs_title:'Цифры, которые важны',
       spec_cycles:'Циклов печати без оператора', spec_uptime:'Автономная работа', spec_power:'Дополнительных розеток',
@@ -588,7 +608,7 @@ class Component extends DCLogic {
       contact_label:'Контакты', contact_title:'Свяжитесь с нами', contact_desc:'Расскажите о вашей задаче и целях. Ответим в течение 24 часов.',
       form_name:'Имя', form_email:'Email', form_company:'Компания', form_message:'Сообщение', form_submit:'Отправить',
       ph_name:'Иван Иванов', ph_email:'you@company.com', ph_company:'ООО «Компания»', ph_message:'Расскажите о вашей задаче…',
-      pdf_title:'Презентация продукта', pdf_desc:'Полные характеристики и цены — PDF',
+      pdf_title:'Презентация продукта', pdf_desc:'Нажмите здесь, чтобы скачать подробную презентацию о продукте в PDF',
       footer_copy:'© 2026 ENGIN MINDS. Все права защищены.', switch_label:'Стиль hero'
     },
     zh: {
