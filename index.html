@@ -19,6 +19,75 @@ body{background:#ffffff;color:#14101F;font-family:'Geist',-apple-system,BlinkMac
 input,textarea,button{font-family:inherit;}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 @keyframes glowpulse{0%,100%{opacity:.45}50%{opacity:.85}}
+
+@media(max-width:768px){
+  /* NAV — скрыть ссылки, уменьшить паддинг */
+  [style*="position:fixed;top:0;left:0;right:0;z-index:100"]{padding:10px 16px!important;}
+  [style*="position:fixed;top:0;left:0;right:0;z-index:100"] > div:nth-child(2){display:none!important;}
+
+  /* HERO — паддинг и убрать плавающие чипы */
+  [style*="padding:148px 30px 92px"]{padding:90px 20px 52px!important;}
+  [style*="animation:floaty"]{display:none!important;}
+
+  /* SECTION паддинги */
+  [style*="padding:118px 30px"]{padding:60px 20px!important;}
+
+  /* LOGO STRIP */
+  [style*="border-top:1px solid #F0EEF5;border-bottom:1px solid #F0EEF5"] > div{
+    flex-direction:column!important;gap:10px!important;align-items:flex-start!important;
+  }
+
+  /* ГРИДЫ — в одну колонку */
+  [style*="grid-template-columns:repeat(3,1fr)"],
+  [style*="grid-template-columns:repeat(5,1fr)"],
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns:1.05fr 0.95fr"],
+  [style*="grid-template-columns:1.1fr 0.9fr"],
+  [style*="grid-template-columns:1fr 0.95fr"]{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+  }
+
+  /* ГАЛЕРЕЯ — 2 колонки */
+  [style*="grid-template-columns:repeat(4,1fr)"]{
+    grid-template-columns:repeat(2,1fr)!important;
+    gap:10px!important;
+  }
+
+  /* HOW IT WORKS — убрать border-right у ячеек, добавить border-bottom */
+  [style*="border-right:1px solid #ECEAF2"]{
+    border-right:none!important;
+    border-bottom:1px solid #ECEAF2!important;
+  }
+
+  /* HERO C stats — убрать border-right */
+  [style*="border-top:1px solid #ECEAF2"] > div[style*="border-right"]{
+    border-right:none!important;
+  }
+
+  /* PRODUCT — скрыть картинку на мобиле (не ломает контент) */
+  [style*="grid-template-columns:1fr 1fr;gap:70px"] > div:last-child{
+    display:none!important;
+  }
+
+  /* ВИДЕО — уменьшить отступ */
+  [style*="max-width:760px;margin:46px auto"]{margin:28px auto 0!important;}
+
+  /* ФОРМА — уменьшить паддинг карточки */
+  [style*="border-radius:20px;padding:34px"]{padding:20px!important;}
+
+  /* ФУТЕР */
+  [style*="display:flex;justify-content:space-between;align-items:center;gap:18px"]{
+    flex-direction:column!important;
+    gap:10px!important;
+    text-align:center!important;
+  }
+
+  /* КОНТАКТЫ — убрать PDF карточку справа (видна в форме) */
+  [style*="grid-template-columns:1fr 1fr;gap:64px"] > div:first-child > a[style*="border-radius:14px"]{
+    max-width:100%!important;
+  }
+}
 </style>
 </helmet>
 
@@ -364,9 +433,9 @@ input,textarea,button{font-family:inherit;}
       <h2 style="font-size:clamp(30px,3.6vw,48px);font-weight:800;line-height:1.08;letter-spacing:-0.03em;margin:14px 0 0;">{{ t.contact_title }}</h2>
       <p style="margin-top:16px;font-size:17px;color:#6E6880;line-height:1.55;max-width:420px;">{{ t.contact_desc }}</p>
       <div style="margin-top:36px;display:flex;flex-direction:column;gap:14px;">
-        <a href="/cdn-cgi/l/email-protection#ec8585828b8a839e8d8080ac8b818d8580c28f8381" style="display:flex;align-items:center;gap:13px;color:#14101F;text-decoration:none;font-size:15px;transition:color .2s;" style-hover="color:#6D3BD1;">
+        <a href="mailto:iingforall@gmail.com" style="display:flex;align-items:center;gap:13px;color:#14101F;text-decoration:none;font-size:15px;transition:color .2s;" style-hover="color:#6D3BD1;">
           <span style="width:38px;height:38px;border-radius:10px;background:#FBFAFD;border:1px solid #ECEAF2;display:flex;align-items:center;justify-content:center;font-family:'Geist Mono',monospace;font-size:13px;color:#6D3BD1;">@</span>
-          <span class="__cf_email__" data-cfemail="f59c9c9b92939a87949999b59298949c99db969a98">[email&#160;protected]</span>
+          iingforall@gmail.com
         </a>
         <a href="tel:+79956002969" style="display:flex;align-items:center;gap:13px;color:#14101F;text-decoration:none;font-size:15px;transition:color .2s;" style-hover="color:#6D3BD1;">
           <span style="width:38px;height:38px;border-radius:10px;background:#FBFAFD;border:1px solid #ECEAF2;display:flex;align-items:center;justify-content:center;font-family:'Geist Mono',monospace;font-size:13px;color:#6D3BD1;">☎</span>
@@ -430,7 +499,7 @@ input,textarea,button{font-family:inherit;}
 </sc-if>
 
 </x-dc>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script>
+<script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { lang: 'en', heroVariant: 1, lightbox: { open: false, idx: 0 } };
   images = ['assets/1.png','assets/2.png','assets/3.png','assets/4.png','assets/5.png','assets/6.png','assets/7.png','assets/8.png'];
