@@ -121,6 +121,7 @@ input,textarea,button{font-family:inherit;}
     <a href="#product" style="font-size:14px;color:#6E6880;text-decoration:none;transition:color .2s;white-space:nowrap;" style-hover="color:#14101F;">{{ t.nav_product }}</a>
     <a href="#gallery" style="font-size:14px;color:#6E6880;text-decoration:none;transition:color .2s;white-space:nowrap;" style-hover="color:#14101F;">{{ t.nav_gallery }}</a>
     <a href="#video" style="font-size:14px;color:#6E6880;text-decoration:none;transition:color .2s;white-space:nowrap;" style-hover="color:#14101F;">{{ t.nav_video }}</a>
+    <a href="https://demo.ema3d.ru:9443" target="_blank" rel="noopener" style="font-size:14px;color:#6D3BD1;text-decoration:none;transition:color .2s;white-space:nowrap;font-weight:500;" style-hover="color:#14101F;">{{ t.hero_cta3 }}</a>
   </div>
   <div style="display:flex;align-items:center;gap:14px;">
     <div style="display:flex;gap:2px;padding:2px;background:#F4F2F8;border-radius:9px;border:1px solid #ECEAF2;">
@@ -151,6 +152,7 @@ input,textarea,button{font-family:inherit;}
         <div style="display:flex;gap:13px;margin-top:34px;flex-wrap:wrap;">
           <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;background:#14101F;color:#fff;padding:14px 24px;border-radius:11px;font-size:15px;font-weight:500;text-decoration:none;transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px rgba(20,16,31,0.2);">{{ t.hero_cta1 }} →</a>
           <a href="#video" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#14101F;padding:14px 24px;border-radius:11px;font-size:15px;font-weight:500;text-decoration:none;border:1px solid #E2DEEC;transition:all .2s;" style-hover="border-color:#C9C1DD;background:#FAF9FC;">{{ t.hero_cta2 }}</a>
+          <a href="https://demo.ema3d.ru:9443" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#6D3BD1;padding:14px 24px;border-radius:11px;font-size:15px;font-weight:500;text-decoration:none;border:1px solid rgba(109,59,209,0.35);transition:all .2s;" style-hover="border-color:#6D3BD1;background:#FAF9FC;">{{ t.hero_cta3 }}</a>
         </div>
         <div style="margin-top:30px;font-family:'Geist Mono',monospace;font-size:12.5px;letter-spacing:0.03em;color:#A49DB4;">{{ t.hero_trust }}</div>
       </div>
@@ -184,6 +186,7 @@ input,textarea,button{font-family:inherit;}
       <div style="display:flex;gap:13px;margin-top:34px;justify-content:center;flex-wrap:wrap;">
         <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;background:#14101F;color:#fff;padding:14px 24px;border-radius:11px;font-size:15px;font-weight:500;text-decoration:none;transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px rgba(20,16,31,0.2);">{{ t.hero_cta1 }} →</a>
         <a href="#video" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#14101F;padding:14px 24px;border-radius:11px;font-size:15px;font-weight:500;text-decoration:none;border:1px solid #E2DEEC;transition:all .2s;" style-hover="border-color:#C9C1DD;background:#FAF9FC;">{{ t.hero_cta2 }}</a>
+          <a href="https://demo.ema3d.ru:9443" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#6D3BD1;padding:14px 24px;border-radius:11px;font-size:15px;font-weight:500;text-decoration:none;border:1px solid rgba(109,59,209,0.35);transition:all .2s;" style-hover="border-color:#6D3BD1;background:#FAF9FC;">{{ t.hero_cta3 }}</a>
       </div>
     </div>
     <div style="max-width:820px;margin:50px auto 0;position:relative;z-index:1;" data-reveal data-reveal-delay="150">
@@ -215,6 +218,7 @@ input,textarea,button{font-family:inherit;}
           <div style="display:flex;gap:13px;margin-top:32px;flex-wrap:wrap;">
             <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;background:#14101F;color:#fff;padding:14px 24px;border-radius:11px;font-size:15px;font-weight:500;text-decoration:none;transition:transform .2s,box-shadow .2s;" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px rgba(20,16,31,0.2);">{{ t.hero_cta1 }} →</a>
             <a href="#video" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#14101F;padding:14px 24px;border-radius:11px;font-size:15px;font-weight:500;text-decoration:none;border:1px solid #E2DEEC;transition:all .2s;" style-hover="border-color:#C9C1DD;background:#FAF9FC;">{{ t.hero_cta2 }}</a>
+          <a href="https://demo.ema3d.ru:9443" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#6D3BD1;padding:14px 24px;border-radius:11px;font-size:15px;font-weight:500;text-decoration:none;border:1px solid rgba(109,59,209,0.35);transition:all .2s;" style-hover="border-color:#6D3BD1;background:#FAF9FC;">{{ t.hero_cta3 }}</a>
           </div>
         </div>
         <div data-reveal data-reveal-delay="120" style="position:relative;">
@@ -531,7 +535,7 @@ class Component extends DCLogic {
     en: {
       nav_how:'How it works', nav_product:'Product', nav_gallery:'Gallery', nav_video:'In action', nav_cta:'Get in touch',
       hero_badge:'Automation hardware', hero_sub:'EMA is a hardware-and-software system that takes the operator out of the loop — printers eject and restart on their own, 24/7.',
-      hero_cta1:'Get in touch', hero_cta2:'Watch it work', hero_trust:'24/7 operation · No operator · Unlimited cycles',
+      hero_cta1:'Get in touch', hero_cta2:'Watch it work', hero_cta3:'Try online', hero_trust:'24/7 operation · No operator · Unlimited cycles',
       heroA_lead:'3D printing that', heroA_accent:'runs itself.',
       heroB_lead:'Your print farm,', heroB_accent:'minus the operators.',
       heroC_lead:'Lights-out', heroC_accent:'manufacturing.',
@@ -573,7 +577,7 @@ class Component extends DCLogic {
     ru: {
       nav_how:'Как работает', nav_product:'Продукт', nav_gallery:'Галерея', nav_video:'Демо', nav_cta:'Связаться',
       hero_badge:'Автоматизация 3D-печати', hero_sub:'EMA — программно-аппаратный комплекс, который убирает оператора из процесса: принтеры сбрасывают деталь и перезапускаются сами, 24/7.',
-      hero_cta1:'Связаться', hero_cta2:'Смотреть в работе', hero_trust:'Работа 24/7 · Без оператора · Бесконечные циклы',
+      hero_cta1:'Связаться', hero_cta2:'Смотреть в работе', hero_cta3:'Попробовать онлайн', hero_trust:'Работа 24/7 · Без оператора · Бесконечные циклы',
       heroA_lead:'3D-печать,', heroA_accent:'которая работает сама.',
       heroB_lead:'Ваша ферма принтеров —', heroB_accent:'без операторов.',
       heroC_lead:'Производство', heroC_accent:'без людей в цеху.',
@@ -615,7 +619,7 @@ class Component extends DCLogic {
     zh: {
       nav_how:'工作原理', nav_product:'产品', nav_gallery:'图库', nav_video:'实际运行', nav_cta:'联系我们',
       hero_badge:'3D打印自动化硬件', hero_sub:'EMA 是一套软硬件系统，让操作员彻底退出流程——打印机自行取件并重启，全天候 24/7。',
-      hero_cta1:'联系我们', hero_cta2:'观看演示', hero_trust:'24/7 运行 · 无需操作员 · 无限循环',
+      hero_cta1:'联系我们', hero_cta2:'观看演示', hero_cta3:'在线体验', hero_trust:'24/7 运行 · 无需操作员 · 无限循环',
       heroA_lead:'会自己运转的', heroA_accent:'3D 打印。',
       heroB_lead:'你的打印农场，', heroB_accent:'无需操作员。',
       heroC_lead:'无人值守的', heroC_accent:'智能制造。',
